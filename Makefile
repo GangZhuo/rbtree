@@ -7,9 +7,17 @@ endif
 
 LDFLAGS += -lm
 
-all: rbtree
+all: rbtree example
 
 rbtree: rbtree.o test/asc16.o test/bitmap.o test/test.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+example: example1 example2
+
+example1: rbtree.o example/example1.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+example2: rbtree.o example/example2.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
@@ -17,6 +25,6 @@ rbtree: rbtree.o test/asc16.o test/bitmap.o test/test.o
 
 .PHONY: clean
 clean:
-	-rm -f *.o test/*.o rbtree
+	-rm -f *.o test/*.o example/*.o rbtree example1 example2
 
 
