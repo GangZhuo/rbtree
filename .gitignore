@@ -1,0 +1,9 @@
+*.o
+*.a
+*.la
+*.so
+*.swp
+tags
+rbtree
+example1
+example2
