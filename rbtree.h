@@ -102,6 +102,11 @@ int rbtree_foreach_postorder(rbtree_t *tree,
 int rbtree_foreach_print(rbtree_t *tree,
 	rbtree_iterate_func_t iteration, void *state);
 
+#define rbtree_offsetof(s,m) ((size_t)&(((s*)0)->m))
+
+#define rbtree_container_of(field, struct_type, field_name) \
+	((struct_type *)(((char *)(field)) - rbtree_offsetof(struct_type, field_name)))
+
 #ifdef __cplusplus
 }
 #endif
