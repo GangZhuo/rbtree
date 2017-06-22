@@ -9,10 +9,10 @@ LDFLAGS += -lm
 
 all: rbtree example
 
+example: example1 example2
+
 rbtree: rbtree.o test/asc16.o test/bitmap.o test/test.o
 	$(CC) -o $@ $^ $(LDFLAGS)
-
-example: example1 example2
 
 example1: rbtree.o example/example1.o
 	$(CC) -o $@ $^ $(LDFLAGS)
