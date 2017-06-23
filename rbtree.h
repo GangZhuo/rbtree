@@ -53,7 +53,7 @@ struct rbtree_t {
 	rbtree_keycmp_func_t keycmp;
 };
 
-#define RBTREE_INIT(keycmp) { .root = NULL, .keycmp = keycmp }
+#define RBTREE_INIT(_keycmp) { .root = NULL, .keycmp = (_keycmp) }
 
 #define rbtree_init(tree, _keycmp) \
 	do { \
