@@ -303,8 +303,11 @@ void rbtree_delete(rbtree_t *tree, rbnode_t *n)
 		y->parent = n->parent;
 		y->color = n->color;
 
-		n->left->parent = y;
-		n->right->parent = y;
+		if (!rbnode_is_nil(n->left))
+			n->left->parent = y;
+
+		if (!rbnode_is_nil(n->right))
+			n->right->parent = y;
 
 		if (rbnode_is_root(n))
 			tree->root = y;
