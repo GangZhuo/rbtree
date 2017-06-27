@@ -206,7 +206,7 @@ static rbnode_t *rbtree_predecessor(rbtree_t *tree, rbnode_t *n)
 	return n;
 }
 
-static void rbtree_delete_fixup(rbtree_t *tree, rbnode_t *x, rbnode_t *p)
+static void rbtree_remove_fixup(rbtree_t *tree, rbnode_t *x, rbnode_t *p)
 {
 	rbnode_t *b;
 
@@ -276,7 +276,7 @@ static void rbtree_delete_fixup(rbtree_t *tree, rbnode_t *x, rbnode_t *p)
         rbnode_set_black(x);
 }
 
-void rbtree_delete(rbtree_t *tree, rbnode_t *n)
+void rbtree_remove(rbtree_t *tree, rbnode_t *n)
 {
 	rbnode_t *x, *y;
 
@@ -296,7 +296,7 @@ void rbtree_delete(rbtree_t *tree, rbnode_t *n)
 	if (y != n) {
 
         if (rbnode_is_black(y))
-            rbtree_delete_fixup(tree, x, y->parent);
+            rbtree_remove_fixup(tree, x, y->parent);
 
 		y->left = n->left;
 		y->right = n->right;
@@ -317,7 +317,7 @@ void rbtree_delete(rbtree_t *tree, rbnode_t *n)
 			n->parent->right = y;
 	}
     else if (rbnode_is_black(y))
-        rbtree_delete_fixup(tree, x, y->parent);
+        rbtree_remove_fixup(tree, x, y->parent);
 }
 
 static int preorder(rbtree_t *tree, rbnode_t *n,

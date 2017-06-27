@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 		printf("5 not exist.\n");
 	
 	/* delete */
-	rbtree_delete(&tree, n);
+	rbtree_remove(&tree, n);
 	
 	/* print */
 	printf("parent node color   dir value\n");

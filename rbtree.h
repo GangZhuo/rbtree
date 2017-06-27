@@ -83,7 +83,7 @@ rbnode_t *rbtree_lookup(rbtree_t *tree, void *key);
 
 /* Delete a node from the tree.
 Make sure that the 'n' is a element in the tree node link. */
-void rbtree_delete(rbtree_t *tree, rbnode_t *n);
+void rbtree_remove(rbtree_t *tree, rbnode_t *n);
 
 /* Iterate nodes.
 If successful, returns 0, otherwise returns error code,

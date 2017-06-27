@@ -256,7 +256,7 @@ static void delete(int v)
 	}
 	else {
 		point = container_of(n, rbpoint_t, rbentry);
-		rbtree_delete(&tree, n);
+		rbtree_remove(&tree, n);
 		printf("delete %d\n", ptoi(n->key));
 		free_point(point);
 		entries--;
