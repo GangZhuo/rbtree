@@ -40,6 +40,10 @@ Creating bitmap...
 Done. 9 entries.
 ```
 
+Generated Image:
+
+![Generated Image](test/1-9.bmp)
+
 ## Example
 
 * [example1]
