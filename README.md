@@ -24,6 +24,22 @@ Red-Black-Tree
     quit                   quit.
 ```
 
+## Generate image
+```
+$ ./rbtree insert 1 insert 2 insert 3 insert 4 insert 5 insert 6 insert 7 insert 8 insert 9 bmp 1.bmp quit
+insert 1.
+insert 2.
+insert 3.
+insert 4.
+insert 5.
+insert 6.
+insert 7.
+insert 8.
+insert 9.
+Creating bitmap...
+Done. 9 entries.
+```
+
 ## Example
 
 * [example1]
