@@ -418,3 +418,28 @@ int rbtree_foreach_print(rbtree_t *tree,
 	return 0;
 }
 
+static int inner_clear(rbnode_t *root, rbnode_free_func_t free_func, void *state)
+{
+    int r;
+    if (!rbnode_is_nil(root->left)) {
+        if ((r = inner_clear(root->left, free_func, state)) != 0)
+            return r;
+        root->left = rbnode_nil;
+    }
+    if (!rbnode_is_nil(root->right)) {
+        if ((r = inner_clear(root->right, free_func, state)) != 0)
+            return r;
+        root->right = rbnode_nil;
+    }
+    free_func(root, state);
+    return 0;
+}
+
+int rbtree_clear(rbtree_t *tree, rbnode_free_func_t free_func, void *state)
+{
+   	if (!rbnode_is_nil(tree->root)) {
+        return inner_clear(tree->root, free_func, state);
+    }
+    return 0;
+}
+

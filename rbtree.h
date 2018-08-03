@@ -47,6 +47,7 @@ struct rbnode_t {
 
 typedef int (*rbtree_keycmp_func_t)(void *a, void *b);
 typedef int (*rbtree_iterate_func_t)(rbtree_t *tree, rbnode_t *n, void *state);
+typedef void (*rbnode_free_func_t)(rbnode_t *node, void *state);
 
 struct rbtree_t {
 	rbnode_t *root;
@@ -84,6 +85,9 @@ rbnode_t *rbtree_lookup(rbtree_t *tree, void *key);
 /* Delete a node from the tree.
 Make sure that the 'n' is a element in the tree node link. */
 void rbtree_remove(rbtree_t *tree, rbnode_t *n);
+
+/* Clear all nodes.*/
+int rbtree_clear(rbtree_t *tree, rbnode_free_func_t free_func, void *state);
 
 /* Iterate nodes.
 If successful, returns 0, otherwise returns error code,
