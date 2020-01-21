@@ -163,7 +163,7 @@ int rbtree_insert(rbtree_t *tree, rbnode_t *n)
 	return 0;
 }
 
-rbnode_t *rbtree_lookup(rbtree_t *tree, void *key)
+rbnode_t *rbtree_lookup(rbtree_t *tree, const void *key)
 {
 	rbnode_t *n = tree->root;
 	int cmp;
