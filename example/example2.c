@@ -37,7 +37,7 @@ typedef struct info_t {
 #define free_rbtree(rb) rbtree_foreach_postorder((rb), free_node, NULL)
 
 /* compare two key. */
-static int keycmp(void *a, void *b)
+static int keycmp(const void *a, const void *b)
 {
 	int x = ptoi(a), y = ptoi(b);
 	return (x - y);

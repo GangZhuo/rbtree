@@ -55,7 +55,7 @@ typedef struct array_t {
 	int *array;
 } array_t;
 
-static int keycmp(void *a, void *b);
+static int keycmp(const void *a, const void *b);
 
 static int entries = 0;
 static rbtree_t tree = RBTREE_INIT(keycmp);
@@ -184,7 +184,7 @@ static int read_values(array_t *arr)
 	return r;
 }
 
-static int keycmp(void *a, void *b)
+static int keycmp(const void *a, const void *b)
 {
 	int x = ptoi(a), y = ptoi(b);
 	return (x - y);

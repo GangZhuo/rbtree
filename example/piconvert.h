@@ -35,10 +35,10 @@ union piconvert_t {
 };
 
 /* convert pointer to integer. */
-static inline int ptoi(void *p)
+static inline int ptoi(const void *p)
 {
 	union piconvert_t c;
-	c.p = p;
+	c.p = (void*)p;
 	return c.i;
 }
 

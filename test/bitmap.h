@@ -57,10 +57,10 @@ union piconvert_t {
 	void *p;
 };
 
-static inline int ptoi(void *p)
+static inline int ptoi(const void *p)
 {
 	union piconvert_t c;
-	c.p = p;
+	c.p = (void*)p;
 	return c.i;
 }
 
